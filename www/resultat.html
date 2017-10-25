@@ -1,0 +1,152 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link type="text/css" rel="stylesheet" href="css/style.css" >
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body >
+  
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>	 
+
+	  
+	    <nav class="orange" role="navigation"  id="nav_mobile"></nav>
+		
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
+	   <div class="row">
+    <div class="col s12 m12">
+	<h6 class="h6"> <i class="material-icons icon-header-cadr">play_circle_filled</i>Résultat du <span id="sous_categorie"></span> : <span class="resltat_q"></span></h6>
+	
+	
+	<div class="col s12 m12 rep_q_rep_user">
+	
+	
+		
+     </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+ 
+  <script>
+   $(document).ready(function(){
+   
+var audioElement = document.createElement('audio');
+   $("#loading").show();
+  var res_juste =0;
+
+  var sous_categorie_id=$_GET['sous_categorie_id'];
+  var sous_categorie=$_GET['sous_categorie'];
+  $("#sous_categorie").html(sous_categorie);
+  var user_id=get_l_s_by_name("id_user");
+  
+  	var rep_q_rep_user="";
+	$.post(url_ws,{method:"resultat_serie_user",sous_categorie_id:sous_categorie_id,user_id:user_id}, function() {
+	},"json")
+  .done(function(result) {
+ 
+
+    var data_res=result.data;
+	var count=data_res.length;
+	
+	if(count>0){
+	for(i=0;i<count;i++){
+	var class_="";
+	if(data_res[i].rep_user==2){
+	res_juste++;
+	class_="green";
+	}else{
+	class_="red";
+	}
+
+rep_q_rep_user+="<div class='col s2 m2'><a class='btn-floating btn-large resltat_q_a "+class_+"' href='#modal_"+data_res[i].id_question+"'>"+(i+1)+"</a></div>";
+
+
+ <!-- Modal Structure -->
+rep_q_rep_user+="<div id='modal_"+data_res[i].id_question+"' class='modal'>";
+rep_q_rep_user+="<div class='modal-content'>";
+rep_q_rep_user+="<h4  class=' q_n "+class_+"'>Question "+(i+1)+"</h4>";
+rep_q_rep_user+="<img class='img_q'  src='"+data_res[i].url_image+"' / >";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="<div class='modal-footer'>";
+rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep'  data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
+
+rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'>Fermer</a>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+  
+	}
+
+	 
+	 $(".rep_q_rep_user").html(rep_q_rep_user);
+	$(".resltat_q").html(res_juste+"/"+40);
+	    
+	// 	 $('.modal').modal();
+	
+	$('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+      
+      },
+      complete: function() { 
+	  
+	  audioElement.pause();
+	  } // Callback for Modal close
+    }
+  );
+  
+ $("#loading").hide();
+  
+
+	}else{
+	var $toastContent = $("<span >  Liste vide !</span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+  $("#loading").hide();
+	}
+  })
+  .fail(function() {
+ 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+    $("#loading").hide(); 
+  });
+  
+  
+$( document ).on( "click", ".play_rep", function() {
+var data_audio=$(this).attr("data-audio");
+
+	audioElement.setAttribute('src', data_audio);
+	audioElement.play();
+});
+$( document ).on( "click", ".rep_q_rep_user a", function() {
+
+$($(this).attr("href")).modal('open');
+  
+});
+
+
+
+ });     
+  </script>
+    </body>
+  </html>

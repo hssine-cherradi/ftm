@@ -1,0 +1,205 @@
+.g-icons{
+    font-size: 34px;
+    padding: 2px;
+    line-height: 41px;
+    float: left;
+    margin-top: 2px;
+    margin-left: 15px;
+}
+.text-g-icons{
+    font-size: 26px;
+    padding: 4px;
+    float: left;
+    margin-left: 8px;
+}
+.menu-ico a{
+color:orange;
+}
+.menu-ico a.disabled{
+	color: rgba(128, 128, 128, 0.16);
+}
+.menu-icons div.menu-ico{
+    background: rgba(128, 128, 128, 0.13);
+    color: #696665;
+    border: 1px solid rgba(137, 135, 134, 0.65);
+    width: 100%;
+    float: left;
+    margin: 7px;
+    padding: 8px;
+    text-align: center;
+}
+.display_none{
+display:none;
+}
+.progress{
+	    background-color: #ce8b12;
+}
+.input-field .prefix.active{
+color:#ff9800;
+}
+.series .collection-item a{
+color:#ff9800;
+}
+.span_right{
+float:right;
+}
+.header-icon-g{float: left;margin-left: 5px;margin-right: 14px;margin-top: -6px;color: #948e8e;font-size: 48px;}.series .collection-item{
+    width: 100%;
+    float: left;
+    color: orange;
+    font-size: 21px;
+    line-height: 25px;
+    background-color: rgba(255, 152, 0, 0.07);
+}.series .collection-item i{
+    float: left;
+    margin-right: 10px;
+    color: #ff9800;
+    font-size: 27px;
+}
+.card-content{
+	margin-top:16px;
+	width:100%;float:left;   
+	border: 1px solid rgba(128, 128, 128, 0.22);
+	}
+	
+	.card-image img{
+	max-height:400px;
+	}
+	
+	    
+	   .icon-header-cadr{
+    margin-top: -4px;
+    float: left;
+    margin-right: 8px;
+    color: orange;
+    margin-bottom: 6px;
+ }
+	
+		#form_chat{
+	    border-top: 1px solid #ff9800;
+	    position: fixed;
+	    bottom: 0;
+	    background: rgb(239, 238, 238);
+	    left: 0;
+	    width: 100%;
+	    float: left;
+	    padding-left: 27px;
+	    padding-top: 13px;
+	    z-index: 1111;
+	    height: 90px;
+	    margin-bottom: 0;
+	    }
+
+	    #form_chat input{width: 99%;float:left;}
+
+	    #form_chat button{width: 100%;float:left;margin-left:20px;margin-right: 20px;}
+		.chat-me .card-panel{
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgb(255, 152, 0), 0 3px 1px -2px rgb(255, 152, 0) !important;
+		}
+		
+.rep_q_rep_user button{
+	    margin-bottom: 10px;
+}
+.h6{
+    background: white;
+    padding: 8px;
+    border-bottom: 1px solid #d4cccc;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+.resltat_q{
+	    background: #ff9800;
+	    padding: 9px;
+	    color: white;
+	    margin-left: 20px;
+	    float: right;
+	    margin-top: -5px;
+}
+
+      .mon_compte li{
+	 float: left;
+	 padding-left: 10px !important;
+	 width:100%;
+	 min-height: 30px !important;
+	 }
+   .mon_compte i{
+	       font-size: 30px;
+	       float: left;
+	       color: #4a4545 !important;
+	   }
+	      .mon_compte span{
+	  font-size: 18px !important;
+	  float: left;
+	  line-height: 32px;
+	  margin-left: 10px;
+	  color: #808080;
+	  }
+	.msg_date_time{float: right;line-height: 21px;padding-top: 2px;width: 80%;text-align: right;margin-left: 50%;color: #695f5f;margin-top: 2px;}
+	.msg_date_time span{font-size: 10px;line-height: 23px;float: left;margin-right: 10px;}
+	.msg_date_time i{font-size: 17px;line-height: 23px;float: left;margin-right: 7px;} 
+	#all_chat{
+	margin-bottom: 70px;
+    width: 100%;
+    float: left;
+	}
+	.modal-content{
+       text-align: center;
+	}
+	.modal-content h4.q_n{
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+	}
+	.modal-content .img_q{
+  max-height: 191px;
+  height:100%;
+  width:auto;
+}
+.resltat_q_a{margin-bottom: 10px;}
+
+.close_modal{
+    float: left;
+    margin-left: 10px;
+    background: orange;
+    color: white;
+    padding: 10px;}
+	
+	.play_rep{
+	text-align:center;
+	font-size: 22px;
+	color: #fafafa;
+	float: left;
+	margin: 0 auto;
+	line-height: 24px;
+	background: orange;
+	margin-bottom: 11px;
+	padding: 12px;
+	width: 150px !important;
+	height: 44px;
+	border: none;
+	}
+
+	.play_rep i{
+	text-align:center;
+	font-size: 31px;
+	line-height: 23px;
+	float: left;
+	margin-left: 20px;
+	color: white;
+	}
+	.div_msg .card-panel{
+	    padding: 10px;
+	}
+	.div_msg_new .card-panel{
+	background-color: rgba(255, 152, 0, 0.1) !important;
+    border: 1px solid orange;
+	}
+		
+	.div_msg_new_sent .card-panel{
+background-color: rgba(3, 169, 244, 0.16) !important;
+    border: 1px solid #a2c6d8;
+	}
+	body{
+	background: white;
+	}
+		

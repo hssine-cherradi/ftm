@@ -1,0 +1,98 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link type="text/css" rel="stylesheet" href="css/style.css" >
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body >
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>	 
+
+		<nav class="orange" role="navigation"  id="nav_mobile"></nav>
+		  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+
+	   <div class="row">
+	    	<h6 class="h6">  Mon compte</h6>
+
+	    <ul class="collection mon_compte" >
+   
+	  <li class="collection-item avatar">
+    <i class="material-icons dp48">account_box</i>
+      <span class="title"><span id="nom"></span> <span id="nom_famille"></span></span>
+   
+     
+    </li>
+	  <li class="collection-item avatar">
+    <i class="material-icons dp48">lock</i>
+      <span class="title"><span id="code"></span></span>
+   
+     
+    </li>
+	
+	
+    <li class="collection-item avatar">
+     <i class="material-icons dp48">school</i>
+      <span class="title"><span id="nom_ecole"></span></span>
+   
+     
+    </li>
+	
+		
+    <li class="collection-item avatar">
+     <i class="material-icons dp48">local_phone</i>
+      <span class="title"><span id="tel"></span></span>
+    </li>
+	
+	  <li class="collection-item avatar">
+     <i class="material-icons dp48">mail</i>
+      <span class="title"><span id="user_email"></span></span>
+    </li>
+	
+  </ul>
+  
+	   </div>
+	   
+	</div>
+	
+		<script>
+		
+		$( document ).ready(function() {
+		
+	var code=get_l_s_by_name("code");
+	var nom=get_l_s_by_name("nom");
+	var nom_famille=get_l_s_by_name("nom_famille");
+	var nom_ecole=get_l_s_by_name("nom_ecole");
+	var tel=get_l_s_by_name("tel");
+	var user_email=get_l_s_by_name("user_email");
+	
+	$("#code").text(code);
+	$("#nom").text(nom);
+	$("#nom_famille").text(nom_famille);
+	$("#nom_ecole").text(nom_ecole);
+	$("#tel").text(tel);
+	$("#user_email").text(user_email);	
+		if(code==""){
+		
+		location.href="login.html";
+		}
+
+		});
+		
+		</script>
+  </div>
+
+    </body>
+  </html>

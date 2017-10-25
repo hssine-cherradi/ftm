@@ -1,0 +1,232 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link type="text/css" rel="stylesheet" href="css/style.css" >
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body >
+    <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>	 
+
+	  
+	    <nav class="orange" role="navigation"  id="nav_mobile"></nav>
+		
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+	<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
+	 <div class="row">
+		 <h6> <i class="material-icons icon-header-cadr">chat</i> Chat</h6>
+		 
+		<div class="all_chat" id="all_chat"> 
+		
+
+		</div>
+	</div>
+	
+	
+	
+	<div class="row" id="form_chat">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type="text"  id="message" />
+        </div>
+		  <div class="input-field col s3">
+            <button class="btn waves-effect waves-light"  id="envoyer" type="button" name="action">
+				<i class="material-icons right">send</i>
+		</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+ </div>
+
+ </div>
+ <style>
+ #all_chat {
+    height:400px;
+    overflow:scroll;
+}
+ </style>
+  <script>
+
+
+		$( document ).ready(function() {
+				//----------------------
+			
+	
+	
+/*
+    background-color: #fafafa !important;
+    border: 1px solid orange;
+*/			
+
+		var last_id_chat=get_l_s_by_name("last_id_chat");
+		var user_id=get_l_s_by_name("id_user");
+		var nom=get_l_s_by_name("nom");
+		var nom_famille=get_l_s_by_name("nom_famille");
+		
+	 // $('#chat').scrollTop($('#chat')[0].scrollHeight);
+		 $("#loading").show();
+		get_last_mesage(20,"init");
+
+		setTimeout(function(){ 
+		setInterval(function(){ 
+		get_last_mesage(20,"real_time");
+	
+		}, 2000);
+		},5000);
+			
+			
+			
+		//--- 
+function get_last_mesage(nb_msg,stat){
+
+	var id_chat=$('#all_chat .div_msg:last-child').attr("data-id");
+	if(typeof id_chat== 'undefined'){
+	id_chat=0;
+	}
+
+	$.post(url_ws_chat, { user_id:user_id,action: "get_last_message",nb_msg:nb_msg,last_id_chat:last_id_chat ,stat:stat},"json")
+	.done(function( data ) {
+	
+	var ids_new_msg = [];
+
+	//var data=JSON.parse(data);
+
+	var all_chat="";
+	
+	var all_msg=data.result.all_msg;
+	
+	for(i=0;i<all_msg.length;i++){
+	if(all_msg[i].message!=""){
+	
+	var count_=$(".div_msg[data-id='"+all_msg[i].id_chat+"']").length;
+
+	if(count_==0){
+	all_chat+=all_msg[i].message;
+	
+	var msg_notif=parseInt($(".msg_notif").text());
+	msg_notif=parseInt(all_msg[i].count_message);
+	$(".msg_notif").text(msg_notif);
+	set_l_s_by_name("last_id_chat",all_msg[i].id_chat);
+	last_id_chat=all_msg[i].id_chat;
+	
+	if(stat=="real_time"){
+	ids_new_msg.push(all_msg[i].id_chat);
+
+	}
+	}
+	}
+	
+	}
+	
+	$("#all_chat").append(all_chat);
+	// ids_new_msg
+	for(j=0;j<ids_new_msg.length;j++){
+	$('div[data-id="'+ids_new_msg[j]+'"]').addClass("div_msg_new");
+	}
+	
+	
+	if(all_msg.length>0){
+	
+	$("#all_chat").scrollTop($("#all_chat")[0].scrollHeight);
+	/*
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
+	audioElement.play();  
+	*/
+	
+	}
+	
+	/*
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
+	audioElement.play();
+	*/
+				
+
+	
+	
+
+
+
+	});
+ $("#loading").hide();
+}
+		
+		$(document).keypress(function(e) {
+    if(e.which == 13) {
+     
+		$('#envoyer').trigger('click');
+    }
+});
+			
+		$( "#envoyer" ).on( "click", function() {	
+		var message=$("#message").val();
+						/* */ 
+						
+		
+		var date_message=new Date().toISOString().slice(0, 19).replace('T', ' ');
+		var jqxhr = $.post( url_ws_chat,{user_id:user_id,nom:nom,nom_famille:nom_famille,action:"envoyer_message",message:message,date_message:date_message}, function(data) {
+		},"json")
+		.done(function(data) {
+		
+		
+		var all_msg=data.result.all_msg;
+			
+		if(all_msg.length>0){
+		$("#message").val("");
+		
+	if(all_msg[0].message!=""){
+	var msg=all_msg[0].message;
+msg=msg.replace(":)","<i class='material-icons dp48'>insert_emoticon</i>");
+msg=msg.replace(":(","<i class='material-icons dp48'>mood_bad</i>");
+msg=msg.replace("<3","<i class='material-icons dp48'>favorite</i>");
+
+		
+	$("#all_chat").append(msg);	
+		$('div[data-id="'+all_msg[0].id_chat+'"]').addClass("div_msg_new");
+	set_l_s_by_name("last_id_chat",all_msg[0].id_chat);
+	last_id_chat=all_msg[0].id_chat;
+	
+	var objDiv = document.getElementById("all_chat");
+	objDiv.scrollTop = objDiv.scrollHeight;
+	
+	}
+
+
+		}
+		// alert("envoyer");
+	// ->
+		})
+		.fail(function() {
+	
+		
+		var $toastContent = $("<span > Impossible d'envoyer le message !  !</span>");
+		Materialize.toast($toastContent, 3000,"alert-danger","top");
+		})
+		.always(function() {});
+ 
+		/* */
+		});
+		//----------------------
+		});
+    </script>
+
+	</body>
+	
+  </html>

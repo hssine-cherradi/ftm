@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <link type="text/css" rel="stylesheet" href="css/style.css" >
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body >
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/db.js"></script>	 
+
+	  
+	    <nav class="orange" role="navigation"  id="nav_mobile"></nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+    			<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
+
+	<h4 id="categorie">Mes tests</h4>
+   <ul class="collection with-header series">
+     
+      
+      </ul>
+  </div>
+  
+ 	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	 $("#loading").show();
+	
+	var user_id=get_l_s_by_name("id_user");
+		
+	var series="";
+	$.post(url_ws,{method:"mes_tests",user_id:user_id}, function() {
+	},"json")
+  .done(function(result) {
+ 
+
+    var data_res=result.data;
+	var count=data_res.length;
+	
+	if(count>0){
+	for(i=0;i<count;i++){
+	series+="<li class='collection-item'> <a href='#' ><i class='material-icons dp48'>"+data_res[i]['icon']+"</i> "+data_res[i]['sous_categorie']+"<span class='span_right'>"+data_res[i]['note']+"</span></a></li>";
+	}
+	
+	$(".series").html(series);
+	 $("#loading").hide();
+	}else{
+	
+	var $toastContent = $("<span >  liste vide !</span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+  $("#loading").hide();
+	}
+	
+  })
+  .fail(function() {
+  
+ 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+    $("#loading").hide(); 
+  });
+  
+   });
+</script>
+    </body>
+  </html>
