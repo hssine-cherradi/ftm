@@ -76,6 +76,7 @@
 
 		var last_id_chat=get_l_s_by_name("last_id_chat");
 		var user_id=get_l_s_by_name("id_user");
+		var ecole_id=get_l_s_by_name("ecole_id");
 		var nom=get_l_s_by_name("nom");
 		var nom_famille=get_l_s_by_name("nom_famille");
 		
@@ -100,7 +101,7 @@ function get_last_mesage(nb_msg,stat){
 	id_chat=0;
 	}
 
-	$.post(url_ws_chat, { user_id:user_id,action: "get_last_message",nb_msg:nb_msg,last_id_chat:last_id_chat ,stat:stat},"json")
+	$.post(url_ws_chat, { user_id:user_id,ecole_id:ecole_id,action: "get_last_message",nb_msg:nb_msg,last_id_chat:last_id_chat ,stat:stat},"json")
 	.done(function( data ) {
 	
 	var ids_new_msg = [];
@@ -181,7 +182,7 @@ function get_last_mesage(nb_msg,stat){
 						
 		
 		var date_message=new Date().toISOString().slice(0, 19).replace('T', ' ');
-		var jqxhr = $.post( url_ws_chat,{user_id:user_id,nom:nom,nom_famille:nom_famille,action:"envoyer_message",message:message,date_message:date_message}, function(data) {
+		var jqxhr = $.post( url_ws_chat,{user_id:user_id,ecole_id:ecole_id,nom:nom,nom_famille:nom_famille,action:"envoyer_message",message:message,date_message:date_message}, function(data) {
 		},"json")
 		.done(function(data) {
 		

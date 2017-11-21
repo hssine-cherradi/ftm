@@ -121,7 +121,7 @@ if(code==""){$("#code").css("border-bottom","2px solid #e74c3c");}else{$("#code"
 	set_l_s_by_name("tel",data_r['tel']);
 	set_l_s_by_name("nom_ecole",data_r['nom_ecole']);
 	set_l_s_by_name("user_email",data_r['user_email']);
-
+	set_l_s_by_name("ecole_id",data_r['ecole_id']);
 	
 
 	
@@ -131,10 +131,21 @@ if(code==""){$("#code").css("border-bottom","2px solid #e74c3c");}else{$("#code"
 	set_l_s_by_name("last_id_chat","0");
 	}
 
-	location.href="index.html";
+	location.href="permis.html";
 	}else{
 	
+	var AbonnementExp=data_res.AbonnementExp;
+
+	if (typeof AbonnementExp !== 'undefined') {
+
+	var $toastContent = $("<span >  "+AbonnementExp+"</span>");
+
+	}else{
 	var $toastContent = $("<span >  Code invalide !</span>");
+
+	}
+
+	
   Materialize.toast($toastContent, 3000,"alert-danger","top");
 	}
 	

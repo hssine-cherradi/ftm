@@ -79,14 +79,76 @@ rep_q_rep_user+="<div class='col s2 m2'><a class='btn-floating btn-large resltat
  <!-- Modal Structure -->
 rep_q_rep_user+="<div id='modal_"+data_res[i].id_question+"' class='modal'>";
 rep_q_rep_user+="<div class='modal-content'>";
-rep_q_rep_user+="<h4  class=' q_n "+class_+"'>Question "+(i+1)+"</h4>";
+rep_q_rep_user+="<h4  class=' q_n "+class_+"'>Quéstion :  "+(i+1)+"</h4>";
 rep_q_rep_user+="<img class='img_q'  src='"+data_res[i].url_image+"' / >";
-rep_q_rep_user+="</div>";
-rep_q_rep_user+="<div class='modal-footer'>";
+
+
 rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep'  data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
 
 rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'>Fermer</a>";
 rep_q_rep_user+="</div>";
+
+
+// rep_def
+var rep_def=data_res[i].rep_def;
+if(rep_def==null){rep_def="";}
+if(rep_def==""){var arr_r_d=[];}
+else{
+var arr_r_d=rep_def.split(",");
+}
+
+
+rep_q_rep_user+="<br>";
+rep_q_rep_user+="<div class='row'>";
+rep_q_rep_user+="<div class='col s6'>";
+rep_q_rep_user+="<b>Réponse juste</b>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="<div class='col s6'>";
+rep_q_rep_user+="<div class='row'>";
+for(var j=1;j<=arr_r_d.length;j++){
+
+var color="red";
+
+if(arr_r_d[j-1]==2){color="green";}
+rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+j+"</a></div>";
+}
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+
+// reponse
+var reponse=data_res[i].reponse;
+if(reponse==null){reponse="";}
+
+if(reponse==""){var arr_reponse=[];
+}else{
+var arr_reponse=reponse.split(",");
+}
+
+
+
+rep_q_rep_user+="<div class='row'>";
+rep_q_rep_user+="<div class='col s6'>";
+rep_q_rep_user+="<b>Votre réponse</b>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="<div class='col s6'>";
+rep_q_rep_user+="<div class='row'>";
+for(var k=1;k<=arr_reponse.length;k++){
+
+var color="red";
+if(arr_reponse[k-1]==2){color="green";}
+rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+k+"</a></div>";
+}
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="<br>";
+
+
+
+rep_q_rep_user+="</div>";
+rep_q_rep_user+="<div class='modal-footer'>";
+
 rep_q_rep_user+="</div>";
 rep_q_rep_user+="</div>";
   

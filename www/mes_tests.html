@@ -50,7 +50,8 @@
 	
 	if(count>0){
 	for(i=0;i<count;i++){
-	series+="<li class='collection-item'> <a href='#' ><i class='material-icons dp48'>"+data_res[i]['icon']+"</i> "+data_res[i]['sous_categorie']+"<span class='span_right'>"+data_res[i]['note']+"</span></a></li>";
+	var url="resultat.html?sous_categorie_id="+data_res[i]['sous_categorie_id'];
+	series+="<li class='collection-item'> <a href='"+url+"' ><i class='material-icons dp48'>"+data_res[i]['icon']+"</i> "+data_res[i]['sous_categorie']+"<span class='span_right'>"+data_res[i]['note']+"</span></a></li>";
 	}
 	
 	$(".series").html(series);

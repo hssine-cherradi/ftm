@@ -26,8 +26,16 @@ var nav_mobile="";
 nav_mobile+="<div class='nav-wrapper container'>";
 nav_mobile+="<a id='logo-container' href='index.html' class='brand-logo'><i class='material-icons dp48'>traffic</i> FTM</a>";
 nav_mobile+="<ul id='nav-mobile' class='side-nav'>";
+nav_mobile+="<li class='sidenav-avatar bg-material'>";
+nav_mobile+="<div class='opacity-overlay-gradient'></div>";
+nav_mobile+="<div class='bottom'>";
+nav_mobile+="<img src='images/avatar_user.png' alt='' class='avatar circle'>";
+nav_mobile+="<span class='dropdown-button waves-effect waves-light' data-activates='dropdown1'><span id='nav_nom_famille'></span> <i class='ion-android-arrow-dropdown right'></i></span>";
+nav_mobile+="</div>";
+nav_mobile+="</li>";
+
 nav_mobile+="<li><a href='mon_compte.html'><i class='material-icons dp48'>account_box</i> Mon compte</a></li>";
-nav_mobile+="<li><a href='index.html'><i class='material-icons dp48'>playlist_play</i> Nouveau test</a></li>";
+nav_mobile+="<li><a href='permis.html'><i class='material-icons dp48'>playlist_play</i> Nouveau test</a></li>";
 nav_mobile+="<li><a href='mes_tests.html'><i class='material-icons dp48'>assignment</i> Mes tests</a></li>";
 nav_mobile+="<li><a href='chats.html'><i class='material-icons'>chat</i> Chat</a></li>";
 nav_mobile+="<li><a href='login.html'><i class='material-icons dp48'>settings_power</i> Déconnexion</a></li>";
@@ -47,6 +55,14 @@ $("#nav_mobile").html(nav_mobile);
       onClose: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is closed
     }
   );
+  
+  
+  		
+	var nav_nom=get_l_s_by_name("nom");
+	var nom_famille=get_l_s_by_name("nom_famille");
+	
+	$("#nav_nom_famille").text(nav_nom+" "+nom_famille);
+	
       
 });
 
