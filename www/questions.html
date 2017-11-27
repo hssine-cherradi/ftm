@@ -27,7 +27,7 @@
 
 	   <div class="row">
     <div class="col s12 m12">
-	<h6 class="h6"> <i class="material-icons icon-header-cadr">play_circle_filled</i> <span id="sous_categorie"></span> , Quéstion : <span id="question_n"></span>/<span id="total_question"></span></h6>
+	<h6 class="h6" id="num_q_serie"> <i class="material-icons icon-header-cadr">play_circle_filled</i> <span id="sous_categorie"></span> , Quéstion : <span id="question_n"></span>/<span id="total_question"></span></h6>
       <div class="card">
         <div class="card-image">
 			<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
@@ -76,6 +76,14 @@
 	<div class="row" id="form_chat">
     <form class="col s12">
       <div class="row">
+	  <div class="row">
+	  <!-- Switch -->
+	  <p class="img_question_cap" data-active="0">
+     <img src="images/img_capt.jpg" /> <span> Joindre  l'image de question </span>
+     </p>
+	</div>
+ 
+ 
         <div class="input-field col s8">
           <i class="material-icons prefix">mode_edit</i>
           <input type="text"  id="message" />
@@ -91,8 +99,26 @@
   </div>
  	<script type="text/javascript">
 	
-	$(document).ready(function(){
 	
+	$(document).ready(function(){
+	var img_capt_def="images/img_capt.jpg";
+	$(".img_question_cap").click(function(){
+	var active=$(this).attr("data-active");
+	if(active==0){
+	var img_q_act=$("#img_question").attr("src");
+	$(this).find("img").attr("src",img_q_act);
+	$(this).find("span").text(" Supprimer  l'image de question");
+	$(this).attr("data-active","1");
+	}
+	
+	if(active==1){
+
+	$(this).find("img").attr("src",img_capt_def);
+	$(this).find("span").text(" Joindre  l'image de question");
+	$(this).attr("data-active","0");
+	}
+	});
+
 	$("#btn_close_chat").click(function(){
 
 	$("#angl_chats").hide();
@@ -392,7 +418,18 @@ function get_last_mesage(nb_msg,stat){
 });
 			
 		$( "#envoyer" ).on( "click", function() {	
-		var message=$("#message").val();
+		
+		if($("#message").val()!=""){
+		var msg_capt="";
+		var is_c_msg=$(".img_question_cap").attr("data-active");
+		if(is_c_msg==1){
+		var ques_int=$("#num_q_serie").text();
+		var img_int=$("#img_question").attr("src");
+		ques_int=ques_int.replace("play_circle_filled","");
+		msg_capt="<h6>"+ques_int+"</h6>"+"<img class='img_capt_q' src='"+img_int+"' >";
+		}
+		
+		var message=msg_capt+"<br/>"+$("#message").val();
 						/* */ 
 						
 		
@@ -426,6 +463,12 @@ msg=msg.replace("<3","<i class='material-icons dp48'>favorite</i>");
 
 
 		}
+		
+	var img_capt_def="images/img_capt.jpg";
+	$(".img_question_cap").find("img").attr("src",img_capt_def);
+$(".img_question_cap").find("span").text(" Joindre  l'image de question");
+$(".img_question_cap").attr("data-active","0");
+
 		// alert("envoyer");
 	// ->
 		})
@@ -436,11 +479,15 @@ msg=msg.replace("<3","<i class='material-icons dp48'>favorite</i>");
 		Materialize.toast($toastContent, 3000,"alert-danger","top");
 		})
 		.always(function() {});
- 
+		}
 		/* */
 		});
+		
+			
 		//----------------------
 		});
+		
+	
     </script>
     </body>
   </html>

@@ -69,7 +69,7 @@ max-height:400px;
 
 .icon-header-cadr{margin-top: -4px;float: left;margin-right: 8px;color: orange;margin-bottom: 6px;}
 
-#form_chat{border-top: 1px solid #ff9800;position: fixed;bottom: 0;background: rgb(239, 238, 238);left: 0;width: 100%;float: left;padding-left: 1px;padding-top: 4px;z-index: 1111;height: 80px;margin-bottom: 0;}
+#form_chat{border-top: 1px solid #ff9800;position: fixed;bottom: 0;background: rgb(239, 238, 238);left: 0;width: 100%;float: left;padding-left: 1px;padding-top: 4px;z-index: 1111;height: 120px;margin-bottom: 0;}
 
 #form_chat input{width: 99%;float:left;}
 
@@ -116,11 +116,7 @@ color: #808080;
 .msg_date_time{float: right;line-height: 21px;padding-top: 2px;width: 80%;text-align: right;margin-left: 50%;color: #695f5f;margin-top: 2px;}
 .msg_date_time span{font-size: 10px;line-height: 23px;float: left;margin-right: 10px;}
 .msg_date_time i{font-size: 17px;line-height: 23px;float: left;margin-right: 7px;} 
-#all_chat{
-margin-bottom: 70px;
-width: 100%;
-float: left;
-}
+#all_chat{margin-bottom: 105px;width: 100%;float: left;}
 .modal-content{
 text-align: center;
 }
@@ -190,4 +186,31 @@ width: 100%;
 color: gray;
 text-align: center;
 border-bottom: 1px solid;
+}
+#angl_chats .row{margin: 0px;padding: 0;}
+ .img_question_cap{width: 80%;cursor: pointer;margin: auto;float: left;background: #ffffff;line-height: 22px;padding: 4px;border: 1px solid rgba(128, 128, 128, 0.36);text-align: center;margin-top: 6px;border-radius: 6px;margin-right: 10%;margin-left: 10%;}
+  
+    .img_question_cap img{
+     height: 32px;
+     padding-top: 4px;
+     margin-left: 10px;
+     color: #9e9e9e;
+     margin-top: 0px;
+     float: left;
+  }
+  
+      .img_question_cap span{
+     font-size: 13px;
+     padding-top: 6px;
+     line-height: 24px;
+     float: left;
+     margin-left: 20px;
+     color: #ff9800;
+     font-weight: bold;
+  }
+  
+  .img_capt_q{
+height:160px;
+width:auto;
+max-width: 100%;
 }

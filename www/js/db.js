@@ -38,6 +38,7 @@ nav_mobile+="<li><a href='mon_compte.html'><i class='material-icons dp48'>accoun
 nav_mobile+="<li><a href='permis.html'><i class='material-icons dp48'>playlist_play</i> Nouveau test</a></li>";
 nav_mobile+="<li><a href='mes_tests.html'><i class='material-icons dp48'>assignment</i> Mes tests</a></li>";
 nav_mobile+="<li><a href='chats.html'><i class='material-icons'>chat</i> Chat</a></li>";
+nav_mobile+="<li><a href='a_propos.html'><i class='material-icons dp48'>info_outline</i> A propos</a></li>";
 nav_mobile+="<li><a href='login.html'><i class='material-icons dp48'>settings_power</i> Déconnexion</a></li>";
 nav_mobile+="</ul>";
 nav_mobile+="<a href='#' data-activates='nav-mobile' class='button-collapse'><i class='material-icons'>menu</i></a>";
