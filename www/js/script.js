@@ -1,5 +1,5 @@
-var url_ws="http://h-cherradi.com/ftm/ws/index.php";
-var url_ws_chat="http://h-cherradi.com/ftm/ws/transactions.php";
+var url_ws="http://admin.freetestmobile.com/ws/index.php";
+var url_ws_chat="http://admin.freetestmobile.com/ws/transactions.php";
 var $_GET = {}; 
 if(document.location.toString().indexOf('?') !== -1) {  
     var query = document.location
