@@ -24,7 +24,7 @@ $( document ).ready(function() {
 var nav_mobile="";
  
 nav_mobile+="<div class='nav-wrapper container'>";
-nav_mobile+="<a id='logo-container' href='index.html' class='brand-logo'><i class='material-icons dp48'>traffic</i> FTM</a>";
+nav_mobile+="<a id='logo-container' href='index.html' class='brand-logo'><i class='material-icons dp48'>traffic</i> <span id='nom_ecole'></span></a>";
 nav_mobile+="<ul id='nav-mobile' class='side-nav'>";
 nav_mobile+="<li class='sidenav-avatar bg-material'>";
 nav_mobile+="<div class='opacity-overlay-gradient'></div>";
@@ -63,7 +63,8 @@ $("#nav_mobile").html(nav_mobile);
 	var nom_famille=get_l_s_by_name("nom_famille");
 	
 	$("#nav_nom_famille").text(nav_nom+" "+nom_famille);
-	
+	var nom_ecole=get_l_s_by_name("nom_ecole");
+	$("#nom_ecole").html(nom_ecole);
       
 });
 
