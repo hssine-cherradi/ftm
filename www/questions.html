@@ -49,9 +49,9 @@
 		</div>
 		
 		 
-		<div class="col s12 m12">
+		<div class="col s12 m12 img_pub" style="display:none;">
             <br/>	 <br/>
-		<img src="http://admin.freetestmobile.com/img_pub/pub.png" style="height:90px;max-width:400px;width:auto;"/>
+		<img src="#" />
 		</div>
             </div>
     </div>
@@ -106,6 +106,39 @@
 	
 	
 	$(document).ready(function(){
+        
+// pub
+        	$.post(url_ws,{method:"pub"}, function() {
+	},"json")
+  .done(function(result) {
+
+
+    var data_res=result.data;
+	var count=data_res.length;
+	
+	if(count>0){
+	
+	var pub=data_res[0].img;
+	if(pub==""){
+		pub="img_pub/pub-def.png";
+	}
+
+	}
+              
+  $(".img_pub img").attr("src",url_fix+pub);
+  $(".img_pub").show();
+  }).fail(function() {
+  
+
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+     $("#loading").hide();
+  });
+  
+//-----------------
+        
+        
+        
 	var img_capt_def="images/img_capt.jpg";
 	$(".img_question_cap").click(function(){
 	var active=$(this).attr("data-active");

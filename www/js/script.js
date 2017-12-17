@@ -1,5 +1,6 @@
-var url_ws="http://admin.freetestmobile.com/ws/index.php";
-var url_ws_chat="http://admin.freetestmobile.com/ws/transactions.php";
+var url_fix="http://admin.freetestmobile.com/";
+var url_ws=url_fix+"ws/index.php";
+var url_ws_chat=url_fix+"ws/transactions.php";
 var $_GET = {}; 
 if(document.location.toString().indexOf('?') !== -1) {  
     var query = document.location

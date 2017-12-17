@@ -217,3 +217,12 @@ max-width: 100%;
 #nom_ecole{
 font-size:12px;
 }
+.img_pub{
+width: 100%;
+float: left;
+}
+.img_pub img{
+width: 100%;
+float: left;
+max-height: 120px;
+}
