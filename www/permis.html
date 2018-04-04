@@ -35,7 +35,6 @@
     </div>
   </div>
   
-  
  	<script type="text/javascript">
 	
 	$(document).ready(function(){
@@ -50,19 +49,38 @@
 
 
     var data_res=result.data;
+	var data_res=result.data['categorie'];
+	var data_res_=result.data['categories'];
 	var count=data_res.length;
-	
+	var count_=data_res_.length;
 	if(count>0){
 	for(i=0;i<count;i++){
-	if(data_res[i]['active']=="1"){
-	var url_s="series.html?categorie_id="+data_res[i]['id_categorie']+"&categorie="+data_res[i]['categorie']+"&icon="+data_res[i]['icon'];
 	
-   permis+="<div class='col s6'><div class='menu-ico'><a href='"+url_s+"'><span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
-}else{
-   permis+="<div class='col s6'><div class='menu-ico'><a href='#' class='disabled'><span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i></a></div></div>";
+	var disabled="";
 
-}
-}
+	var class_p="menu_permis";
+	if(data_res[i]['active']=="0"){
+	class_p="";
+	disabled="disabled";
+	}
+	
+   permis+="<div class='col s12 "+ class_p+"' data-id="+data_res[i]['id_categorie']+" ><div class='menu-ico'><a class='"+disabled+"' href='javascript:void(0)'>";
+   permis+="<span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i>";
+   permis+="</a>";
+   permis+="<ul class='collection with-header display_none sous_menu' id='"+data_res[i].id_categorie+"'>";
+	for(j=0;j<count_;j++){
+	var url_s="#";
+	if(data_res_[j].cat==data_res[i]['id_categorie']){
+	url_s="series.html?categorie_id="+data_res_[j]['id_categorie']+"&categorie="+data_res_[j]['categorie']+"&icon="+data_res_[j]['icon'];
+
+
+   permis+="<li class='collection-item'><a href='"+url_s+"'><span><i class='material-icons '>local_movies</i> "+data_res_[j]['categorie']+" </span></a></li>";
+	}
+   }
+    permis+="</ul>";
+	
+    permis+="</div></div>";
+	}
 	
 	$(".permis").html(permis);
 	  $("#loading").hide();
@@ -82,7 +100,15 @@
      $("#loading").hide();
   });
   
+  // menu_permis
+$(document).on('click', ".menu_permis", function () {
+	var id=$(this).attr("data-id");
+	$(".sous_menu").hide();
+	$("#"+id).show();
+});
+
    });
 </script>
+
     </body>
   </html>
