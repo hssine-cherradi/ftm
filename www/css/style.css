@@ -236,3 +236,31 @@ width: 100%;
 float: left;
 max-height: 120px;
 }
+
+.collection.with-header{
+    padding-left: 20px;
+    width: 100%;
+    float: left;
+    background: white;
+}
+.collection.with-header .collection-item {
+      border-bottom: 1px solid #e0e0e0;
+      padding:10px;
+      line-height: 18px;
+      float: left;
+      width: 100%;
+      text-align: left;
+      font-size: 17px;
+}
+
+
+.collection.with-header .collection-item a span{
+    float: left;
+    width: 100%;
+}
+    .menu_permis{cursor: pointer;}
+
+.collection.with-header .collection-item a span i{
+  float: left;
+  margin-right: 10px;
+}
