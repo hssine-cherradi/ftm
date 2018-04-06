@@ -35,7 +35,7 @@
   </div>
   </div>
   <div class="fixed-action-btn footer-btn-hist">
-  <a class="btn-floating btn-large  orange">
+  <a href="mes_tests.html" class="btn-floating btn-large  orange">
     <i class="large material-icons dp48">history</i>
   </a>
    </div>
@@ -68,9 +68,9 @@
 	disabled="disabled";
 	}
 	
-   permis+="<div class='col s12 "+ class_p+"' data-id="+data_res[i]['id_categorie']+" ><div class='menu-ico'><a class='"+disabled+"' href='javascript:void(0)'>";
+   permis+="<div class='col s12 "+ class_p+"' data-id="+data_res[i]['id_categorie']+" ><div class='menu-ico'><button class='"+disabled+"' href='javascript:void(0)'>";
    permis+="<span class='text-g-icons'>"+data_res[i]['categorie']+"</span> <i class='material-icons g-icons'>"+data_res[i]['icon']+"</i>";
-   permis+="</a>";
+   permis+="</button>";
    permis+="<ul class='collection with-header display_none sous_menu' id='"+data_res[i].id_categorie+"'>";
 	for(j=0;j<count_;j++){
 	var url_s="#";
