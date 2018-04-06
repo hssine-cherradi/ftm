@@ -40,9 +40,7 @@ color:#ff9800;
 .series .collection-item a{
 color:#ff9800;
 }
-.span_right{
-float:right;
-}
+.span_right{float: right !important;width: auto !important;}
 .header-icon-g{float: left;margin-left: 5px;margin-right: 14px;margin-top: -6px;color: #948e8e;font-size: 48px;}.series .collection-item{
 width: 100%;
 float: left;
@@ -263,4 +261,22 @@ max-height: 120px;
 .collection.with-header .collection-item a span i{
   float: left;
   margin-right: 10px;
+}
+
+#index-banner::after {
+  content: "";
+  background: url(../images/bg.jpg);
+  background-position: center;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#index-banner .container{
+  background: #ffffffbd;
+  padding:20px;
 }
