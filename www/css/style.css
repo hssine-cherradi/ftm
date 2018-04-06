@@ -1,33 +1,18 @@
-.g-icons{
-font-size: 34px;
-padding: 2px;
-line-height: 41px;
-float: left;
-margin-top: 2px;
-margin-left: 15px;
-}
-.text-g-icons{
-font-size: 26px;
-padding: 4px;
-float: left;
-margin-left: 8px;
-}
+.g-icons{font-size: 33px;padding: 2px;line-height: 41px;float: left;margin-top: 2px;margin-left: 15px;color: gray;}
+.text-g-icons{font-size: 26px;padding: 4px;float: left;margin-left: 8px;color: gray;}
 .menu-ico a{
 color:orange;
 }
 .menu-ico a.disabled{
 color: rgba(128, 128, 128, 0.16);
 }
-.menu-icons div.menu-ico{
-background: rgba(128, 128, 128, 0.13);
-color: #696665;
-border: 1px solid rgba(137, 135, 134, 0.65);
-width: 100%;
-float: left;
-margin: 7px;
-padding: 8px;
-text-align: center;
+.menu-ico a.disabled span{
+color: rgba(128, 128, 128, 0.16);
 }
+.menu-ico a.disabled i{
+color: rgba(128, 128, 128, 0.16);
+}
+.menu-icons div.menu-ico{background: rgba(128, 128, 128, 0.13);color: #696665;border: 1px solid rgba(137, 135, 134, 0.19);width: 100%;float: left;margin: 3px;padding: 3px;text-align: center;border-radius: 5px;}
 .display_none{
 display:none;
 }
@@ -37,27 +22,13 @@ background-color: #ce8b12;
 .input-field .prefix.active{
 color:#ff9800;
 }
-.series .collection-item a{
-color:#ff9800;
-}
+.series .collection-item a{color: #948e8e;line-height: 29px;}
 .span_right{float: right !important;width: auto !important;}
-.header-icon-g{float: left;margin-left: 5px;margin-right: 14px;margin-top: -6px;color: #948e8e;font-size: 48px;}.series .collection-item{
-width: 100%;
-float: left;
-color: orange;
-font-size: 21px;
-line-height: 25px;
-background-color: rgba(255, 152, 0, 0.07);
-}.series .collection-item i{
-float: left;
-margin-right: 10px;
-color: #ff9800;
-font-size: 27px;
-}
-.card-content{margin-top: 0px;width:100%;float:left;border: 1px solid rgba(128, 128, 128, 0.22);}
+.header-icon-g{float: left;margin-left: 5px;margin-right: 14px;margin-top: -14px;color: #948e8e;font-size: 41px;}.series .collection-item{width: 100%;float: left;color: #f4f4f4;font-size: 21px;line-height: 25px;background-color: rgb(172, 172, 172);}.series .collection-item i{float: left;margin-right: 10px;color: #948e8e;font-size: 27px;}
+.card-content{padding: 0px !important;margin-top: 0px;width:100%;float:left;border: 1px solid rgba(128, 128, 128, 0.22);}
 
 .card-image img{
-  max-height: 220px;
+  max-height: 180px;
   margin: auto;
  }
 #question_arabic{
@@ -173,10 +144,7 @@ border: 1px solid #a2c6d8;
 body{
 background: white;
 }
-.collection li a{
-width:100%;
-float:left;
-}
+.collection li a{width:100%;float:left;background: #ffffffa8;}
 .sidenav-avatar .bottom{
 text-align: center;
 }
@@ -234,33 +202,42 @@ width: 100%;
 float: left;
 max-height: 120px;
 }
-
+#categorie{
+ background: #ffffff;
+ height: 46px;
+ padding: 13px;
+}
 .collection.with-header{
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 100%;
     float: left;
-    background: white;
+    background: #ffffffab;
+    padding-top: 10px;
 }
 .collection.with-header .collection-item {
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #929292;
       padding:10px;
       line-height: 18px;
       float: left;
       width: 100%;
       text-align: left;
       font-size: 17px;
+      background: white;
 }
 
 
 .collection.with-header .collection-item a span{
     float: left;
     width: 100%;
+    color: gray;
 }
     .menu_permis{cursor: pointer;}
 
 .collection.with-header .collection-item a span i{
   float: left;
   margin-right: 10px;
+  color: gray;
 }
 
 #index-banner::after {
@@ -279,4 +256,37 @@ max-height: 120px;
 #index-banner .container{
   background: #ffffffbd;
   padding:20px;
+  width: 90%;
+  margin: auto;
+  padding-top: 2px;
+  float: left;
+  margin-left: 5%;
 }
+.btn-back{float: left;font-size: 21px;background: #ff9800;color: #ffffff;height: 40px;width: 41px;margin-top: 12px;line-height: 25px;border: 1px solid #ffffff1a;border-radius: 2px;margin-right: 12px !important;}
+.btn-back:hover{
+    background: #e28b0a;
+}
+.btn-back i{
+ line-height: 42px !important;
+}
+.rep_q_user .s6 button{width: 100%;border-radius: 0px;height: 39px;margin-top: 10px;font-size: 21px;}
+.btn-rep button{
+ width: 100%;
+ float:left;
+ margin-top:8px;
+ }
+ .footer-btn-hist a{
+	 
+ }
+  .footer-btn-hist a i{
+	     line-height: 40px !important;
+ }
+ .series{
+	    max-height: 400px;
+    overflow: auto;
+ }
+ .img_pub{
+    margin-top: 10px;
+    width: 100%;
+    float: left; 
+ }
