@@ -1,18 +1,18 @@
 .g-icons{font-size: 33px;padding: 2px;line-height: 41px;float: left;margin-top: 2px;margin-left: 15px;color: gray;}
 .text-g-icons{font-size: 26px;padding: 4px;float: left;margin-left: 8px;color: gray;}
-.menu-ico button{width:100%;float:left;background: #ffffff70;}
+.menu-ico{width:100%;float:left;background: #ffffff70;}
 
-.menu-ico button:focus {
+.menu-ico:focus {
     outline: none;
     background-color: #e7e7e7;
 }
-.menu-ico button.disabled{
+.menu-ico.disabled{
 color: rgba(128, 128, 128, 0.16);
 }
-.menu-ico button.disabled span{
+.menu-ico.disabled span{
 color: rgba(128, 128, 128, 0.16);
 }
-.menu-ico button.disabled i{
+.menu-ico.disabled i{
 color: rgba(128, 128, 128, 0.16);
 }
 .menu-icons div.menu-ico{background: rgba(128, 128, 128, 0.13);color: #696665;border: 1px solid rgba(137, 135, 134, 0.19);width: 100%;float: left;margin: 3px;padding: 3px;text-align: center;border-radius: 5px;}
