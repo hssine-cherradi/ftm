@@ -17,4 +17,3 @@ if(document.location.toString().indexOf('?') !== -1) {
     }
 }
 //get the 'index' query parameter
-

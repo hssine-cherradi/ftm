@@ -33,6 +33,7 @@ color:#ff9800;
 .card-image img{
   max-height: 180px;
   margin: auto;
+  min-width: 180px;
  }
 #question_arabic{
   width: 100%;
@@ -41,8 +42,10 @@ color:#ff9800;
   padding: 8px;
   border-radius: 5px;
   text-align: right;
-  margin-top: 25px;
+  margin-top: 12px;
   font-weight: bold;
+  background: white;
+  margin-bottom: 2px;
  }
 
 .icon-header-cadr{margin-top: -4px;float: left;margin-right: 8px;color: orange;margin-bottom: 6px;}
@@ -55,7 +58,11 @@ color:#ff9800;
 .chat-me .card-panel{
 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgb(255, 152, 0), 0 3px 1px -2px rgb(255, 152, 0) !important;
 }
-.rep_q_user{
+.rep_q_user{margin: 0;padding: 2px !important;}
+.rep_q_user .s6{
+  padding:2px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .rep_q_rep_user button{margin-bottom: 10px;}
 .h6{
@@ -65,14 +72,10 @@ border-bottom: 1px solid #d4cccc;
 padding-bottom: 15px;
 margin-bottom: 10px;
 }
-.resltat_q{
-background: #ff9800;
-padding: 9px;
-color: white;
-margin-left: 20px;
-float: right;
-margin-top: -5px;
+.resltat_q_a {
+border-radius:3px;
 }
+.resltat_q{background: #ff9800;padding: 9px;color: white;margin-left: 3px;float: right;margin-top: -5px;margin-right: 0px;}
 
 .mon_compte li{
 float: left;
@@ -126,6 +129,11 @@ font-size: 16px;
 .header_chat{width:100%;float:left;border-bottom: 1px solid #ff9800;padding-bottom: 8px;background: white;}
 .modal-content .img_q{max-height: 165px;height: auto;width: 100%;}
 .resltat_q_a{margin-bottom: 10px;}
+.resltat_q_a.red{color: white;background: #a7a7a7 !important;}
+.resltat_q_a.green{
+	color: white;
+	background: #ff9800 !important;
+}
 #question_arabic_mod{
     width: 100%;
     float: left;
@@ -275,14 +283,18 @@ max-height: 120px;
   float: left;
   margin-left: 5%;
 }
-.btn-back{float: left;font-size: 21px;background: #ff9800;color: #ffffff;height: 40px;width: 41px;margin-top: 12px;line-height: 25px;border: 1px solid #ffffff1a;border-radius: 2px;margin-right: 12px !important;}
+.btn-back{float: left;font-size: 21px;color: #ffffff;height: 40px;width: 41px;margin-top: 12px;line-height: 25px;border: 1px solid #ffffff1a;border-radius: 2px;padding-right: 3px !important;background: #ff9800;}
 .btn-back:hover{
     background: #e28b0a;
 }
+#logo-container{
+  margin-left: 15px;
+}
+
 .btn-back i{
  line-height: 42px !important;
 }
-.rep_q_user .s6 button{width: 100%;border-radius: 0px;height: 39px;margin-top: 10px;font-size: 21px;}
+.rep_q_user .s6 button{width: 100%;border-radius: 0px;height: 39px;font-size: 21px;margin-top: 5px;}
 .btn-rep button{
  width: 100%;
  float:left;
@@ -303,8 +315,47 @@ max-height: 120px;
     width: 100%;
     float: left; 
  }
- #code{ 
+ #code{
 	    background: white;
-    padding-left: 10px;
-    color: #1f1f1f;
- } 
+	    padding-left: 9px;
+	    color: #1f1f1f;
+	    width: 80%;
+	    max-width: 400px;
+	} 
+
+ .row_reponse{
+	background: #afaead;
+	width: 100%;
+	float: left;
+	padding-right: 16px !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	padding-top: 7px !important;
+	}
+ .row_reponse .s3{
+	
+ }
+ .row_reponse a{
+	border-radius: 2px;
+	margin: 0;
+	padding: 0;
+	}
+ .row_reponse a.red{background: #96938e !important;color: white;}
+  .row_reponse a.green{
+ 	background: orange !important;
+ 	color: white;
+ }
+ .row_reponse i{
+	color: white;
+	background: #9c9a98;
+	padding: 6px;
+	height: 40px;
+	width: 40px;
+	border-bottom: 2px solid  #7d7d7a;
+	}
+#form_chat .prefix{
+	    left: 21px;
+}
+.nav-wrapper.container{
+    z-index: 333333333333333;
+}

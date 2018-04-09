@@ -24,7 +24,9 @@ $( document ).ready(function() {
 var nav_mobile="";
  
 nav_mobile+="<div class='nav-wrapper container'>";
-nav_mobile+="<a id='logo-container' href='index.html' class='brand-logo'><i class='material-icons dp48'>traffic</i> <span id='nom_ecole'></span></a>";
+
+
+nav_mobile+="<a id='logo-container' href='index.html' class='brand-logo'><span id='nom_ecole'></span></a>";
 nav_mobile+="<ul id='nav-mobile' class='side-nav'>";
 nav_mobile+="<li class='sidenav-avatar bg-material'>";
 nav_mobile+="<div class='opacity-overlay-gradient'></div>";
@@ -42,6 +44,8 @@ nav_mobile+="<li><a href='a_propos.html'><i class='material-icons dp48'>info_out
 nav_mobile+="<li><a href='login.html'><i class='material-icons dp48'>settings_power</i> Déconnexion</a></li>";
 nav_mobile+="</ul>";
 nav_mobile+="<a href='#' data-activates='nav-mobile' class='button-collapse'><i class='material-icons'>menu</i></a>";
+nav_mobile+="<button type='button'  class='waves-effect waves-light btn-small btn-back' onclick='window.history.back();' ><i class='material-icons'>&#xE314;</i></button>";
+
 nav_mobile+="</div>";
 
 $("#nav_mobile").html(nav_mobile);
