@@ -81,14 +81,15 @@ rep_q_rep_user+="<div id='modal_"+data_res[i].id_question+"' class='modal'>";
 rep_q_rep_user+="<div class='modal-content'>";
 rep_q_rep_user+="<h4  class=' q_n "+class_+"'>Quéstion :  "+(i+1)+"</h4>";
 rep_q_rep_user+="<img class='img_q'  src='"+data_res[i].url_image+"' / >";
-rep_q_rep_user+="<div class='col s12 m12'><p id='question_arabic_mod'>"+data_res[i].question_arabic+"</p></div>";
+rep_q_rep_user+="<div class='col s12 m12'><div id='question_arabic_mod'>"+data_res[i].question_arabic+"</div></div>";
+
 if(data_res[i].correction_url_mp3c_arabic!=""){
-rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep'  data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
+rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep' data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
 }
 rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'>Fermer</a>";
 rep_q_rep_user+="</div>";
 
-
+ 
 // rep_def
 var rep_def=data_res[i].rep_def;
 if(rep_def==null){rep_def="";}

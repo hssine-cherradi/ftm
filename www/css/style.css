@@ -99,14 +99,8 @@ color: #808080;
 .msg_date_time span{font-size: 10px;line-height: 23px;float: left;margin-right: 10px;}
 .msg_date_time i{font-size: 17px;line-height: 23px;float: left;margin-right: 7px;} 
 #all_chat{margin-bottom: 105px;width: 100%;float: left;}
-.modal-content{
-text-align: center;
-}
-.modal-content h4.q_n{
-padding: 8px;
-color: white;
-font-size: 16px;
-}
+.modal-content{text-align: center;padding: 7px !important;margin: 0px;}
+.modal-content h4.q_n{padding: 5px;color: white;font-size: 16px;margin: 3px;padding-top: 4px;}
 
 .modal-content .row{
   margin-bottom:4px;
@@ -127,7 +121,7 @@ font-size: 16px;
     margin-right: 30px;
 }
 .header_chat{width:100%;float:left;border-bottom: 1px solid #ff9800;padding-bottom: 8px;background: white;}
-.modal-content .img_q{max-height: 165px;height: auto;width: 100%;}
+.modal-content .img_q{max-height: 150px;height: auto;width: 100%;}
 .resltat_q_a{margin-bottom: 10px;}
 .resltat_q_a.red{color: white;background: #a7a7a7 !important;}
 .resltat_q_a.green{
@@ -138,10 +132,10 @@ font-size: 16px;
     width: 100%;
     float: left;
     border: 2px solid #ff9800;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 7px;
+    border-radius: 4px;
     text-align: right;
-    margin-top: 2px;
+    margin-top: 0px;
     margin-bottom: 6px;
     font-weight: bold;
 }
@@ -162,9 +156,7 @@ border: 1px solid orange;
 background-color: rgba(3, 169, 244, 0.16) !important;
 border: 1px solid #a2c6d8;
 }
-body{
-background: white;
-}
+body{background: white;width: 100%;float: left;}
 .collection li a{width:100%;float:left;background: #ffffffa8;}
 .sidenav-avatar .bottom{
 text-align: center;
@@ -209,7 +201,7 @@ width:auto;
 max-width: 100%;
 }
 .section.no-pad-bot {
- margin-top: -7px;
+ margin-top: -13px;
 }
 #nom_ecole{
 font-size:12px;
@@ -276,14 +268,14 @@ max-height: 120px;
 
 #index-banner .container{
   background: #ffffff80;
-  padding:20px;
+  padding: 10px;
   width: 90%;
   margin: auto;
   padding-top: 2px;
   float: left;
   margin-left: 5%;
 }
-.btn-back{float: left;font-size: 21px;color: #ffffff;height: 40px;width: 41px;margin-top: 12px;line-height: 25px;border: 1px solid #ffffff1a;border-radius: 2px;padding-right: 3px !important;background: #ff9800;}
+.btn-back{float: left;font-size: 21px;color: #ffffff;height: 40px;width: 41px;margin-top: 12px;line-height: 25px;border: 1px solid #e88d07;border-radius: 2px;padding-right: 3px !important;background: #ff9800;z-index: 0;}
 .btn-back:hover{
     background: #e28b0a;
 }
@@ -358,4 +350,10 @@ max-height: 120px;
 }
 .nav-wrapper.container{
     z-index: 333333333333333;
+}
+
+.text_rtl {
+    direction: rtl;
+    text-align: right;
+    float: right !important;
 }
