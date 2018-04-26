@@ -86,7 +86,8 @@ rep_q_rep_user+="<div class='col s12 m12'><div id='question_arabic_mod'>"+data_r
 if(data_res[i].correction_url_mp3c_arabic!=""){
 rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep' data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
 }
-rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'>Fermer</a>";
+rep_q_rep_user+="<button  data-id='ex_"+data_res[i].id_question+"' class='waves-effect waves-green btn-default explication'> <i class='material-icons'>&#xE88F;</i></button>";
+rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'><i class='material-icons'>&#xE5CD;</i></a>";
 rep_q_rep_user+="</div>";
 
  
@@ -100,7 +101,11 @@ var arr_r_d=rep_def.split(",");
 
 
 rep_q_rep_user+="<br>";
+rep_q_rep_user+="<div class='col s12 expliquation_arabic'  id='ex_"+data_res[i].id_question+"'>";
+rep_q_rep_user+="</p>"+data_res[i].expliquation_arabic+"</p>";
+rep_q_rep_user+="</div>";
 rep_q_rep_user+="<div class='row row_reponse'>";
+
 rep_q_rep_user+="<div class='col s3'>";
 rep_q_rep_user+="<b><i class='material-icons'>check_circle</i></b>";
 rep_q_rep_user+="</div>";
@@ -194,7 +199,12 @@ rep_q_rep_user+="</div>";
     $("#loading").hide(); 
   });
   
-  
+  $( document ).on( "click", ".explication", function() {
+	var id=$(this).attr("data-id");
+	$("#"+id).toggle();
+	
+
+  });
 $( document ).on( "click", ".play_rep", function() {
 var data_audio=$(this).attr("data-audio");
 
