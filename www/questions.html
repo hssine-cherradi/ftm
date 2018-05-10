@@ -40,10 +40,10 @@
         </div>
         <div class="card-content ">
 		<div class="col s12 m12 rep_q_user">
-		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='1'>1</button></div>
-		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='1'>2</button></div>
-		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='1'>3</button></div>
-		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='1'>4</button></div>
+		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>1</button></div>
+		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>2</button></div>
+		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>3</button></div>
+		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>4</button></div>
         </div>
 		
 		<div class="col s12 m12 btn-rep">
@@ -118,7 +118,7 @@
 	
 	$(document).ready(function(){
        $("#correction").click(function(){
-	$(".rep_q_user button").val("1");
+	$(".rep_q_user button").val("2");
 	$(".rep_q_user button").removeClass("amber");
 	$(".rep_q_user button").addClass("grey");
 	});
@@ -282,10 +282,10 @@
 	
 	rep_q_user=rep_q_user.join();
 	
-	var rep=1;
-	$(".rep_q_user button").val("1");
+	var rep=2;
+	$(".rep_q_user button").val("2");
 	if(rep_q_user==reponse_valide){
-	rep=2;
+	rep=1;
 	}
 	var user_id=get_l_s_by_name("id_user");
 	
@@ -307,7 +307,7 @@
 	
 	 $("#loading").show();
 	$("#img_question").hide();
-	$(".rep_q_user button").val("1");
+	$(".rep_q_user button").val("2");
 	$(".rep_q_user button").removeClass("amber");
 	$(".rep_q_user button").addClass("grey");
 	
@@ -340,17 +340,17 @@
   
   
 $(".rep_q_user button").click(function(){
-if(  $(this).val()==1){
+if(  $(this).val()==2){
 
 	$(this).removeClass("grey");
 	$(this).addClass("amber");
-	$(this).val("2");
+	$(this).val("1");
 	
 }else{
 	
 	$(this).removeClass("amber");
 	$(this).addClass("grey");
-	$(this).val("1");
+	$(this).val("2");
 }
   
 });
