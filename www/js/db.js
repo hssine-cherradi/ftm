@@ -41,6 +41,7 @@ nav_mobile+="<li><a href='permis.html'><i class='material-icons dp48'>playlist_p
 nav_mobile+="<li><a href='mes_tests.html'><i class='material-icons dp48'>assignment</i> Mes tests</a></li>";
 nav_mobile+="<li><a href='chats.html'><i class='material-icons'>chat</i> Chat</a></li>";
 nav_mobile+="<li><a href='a_propos.html'><i class='material-icons dp48'>info_outline</i> A propos</a></li>";
+nav_mobile+="<li><a href='messages.html'><i class='material-icons dp48'>mode_comment</i> Messages <span id='c_messages'>0</span></a></li>";
 nav_mobile+="<li><a href='login.html'><i class='material-icons dp48'>settings_power</i> Déconnexion</a></li>";
 nav_mobile+="</ul>";
 nav_mobile+="<a href='#' data-activates='nav-mobile' class='button-collapse'><i class='material-icons'>menu</i></a>";
@@ -72,3 +73,35 @@ $("#nav_mobile").html(nav_mobile);
       
 });
 
+	var ecole_id=get_l_s_by_name("ecole_id");
+    var user_id=get_l_s_by_name("id_user");
+	$.post(url_ws,{method:"messages",ecole_id:ecole_id,user_id:user_id}, function() {
+	},"json")
+  .done(function(result) {
+ 
+
+    var data_res=result.data;
+	var count=data_res.length;
+	var count_messages=data_res.count_messages;
+	$("#c_messages").text(count_messages);
+	if(count>0){
+	for(i=0;i<count;i++){
+
+	}
+	
+	 $("#loading").hide();
+	}else{
+	
+
+  $("#loading").hide();
+	}
+	
+  })
+  .fail(function() {
+  
+ 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+    $("#loading").hide(); 
+  });
+  

@@ -41,7 +41,271 @@
   </div>
   </div>
   
+  
+  
+<div id="angl_chats">
+<div class="row">
+		 <h6 class="header_chat"> <i class="material-icons icon-header-cadr">chat</i> Chat  
+
+		<button type="button"  class="btn-floating waves-effect waves-light orange btn_close_chat"><i class="material-icons">close</i></button>
+		 </h6>
+		 
+		<div class="all_chat" id="all_chat" style="height: 210px;"> 
+		
+
+		</div>
+	</div>
+	
+	
+	
+	<div class="row" id="form_chat">
+    <form class="col s12">
+      <div class="row">
+	  <div class="row">
+	  <!-- Switch -->
+	  <p class="img_question_cap" data-active="0">
+     <img src="images/img_capt.jpg" /> <span> Joindre  l'image de question </span>
+     </p>
+	</div>
  
+ 
+        <div class="input-field col s8">
+          <i class="material-icons prefix">mode_edit</i>
+          <input type="text"  id="message" />
+        </div>
+		  <div class="input-field col s3">
+            <button class="btn waves-effect waves-light"  id="envoyer" type="button" name="action">
+				<i class="material-icons right">send</i>
+		</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  
+ 
+ 
+ 
+   <!------------- chats script-->
+    <script>
+
+
+		$( document ).ready(function() {
+				//----------------------
+			
+	//-----------------
+        
+        
+        
+	var img_capt_def="images/img_capt.jpg";
+	$(".img_question_cap").click(function(){
+	var active=$(this).attr("data-active");
+	if(active==0){
+	var img_q_act=$(".modal.open .img_q").attr("src");
+	$(this).find("img").attr("src",img_q_act);
+	$(this).find("span").text(" Supprimer  l'image de question");
+	$(this).attr("data-active","1");
+	}
+	
+	if(active==1){
+
+	$(this).find("img").attr("src",img_capt_def);
+	$(this).find("span").text(" Joindre  l'image de question");
+	$(this).attr("data-active","0");
+	}
+	});
+
+	
+	$(document).on('click',".btn_close_chat" , function () {
+	$("#angl_chats").hide();
+	});
+	
+	
+	$(document).on('click',".btn_open_chat" , function () {
+	$("#angl_chats").show();
+	});
+		//-----------------
+	
+/*
+    background-color: #fafafa !important;
+    border: 1px solid orange;
+*/			
+
+		var last_id_chat=get_l_s_by_name("last_id_chat");
+		var user_id=get_l_s_by_name("id_user");
+		var ecole_id=get_l_s_by_name("ecole_id");
+		var nom=get_l_s_by_name("nom");
+		var nom_famille=get_l_s_by_name("nom_famille");
+		
+	 // $('#chat').scrollTop($('#chat')[0].scrollHeight);
+		 $("#loading").show();
+		get_last_mesage(20,"init");
+
+		setTimeout(function(){ 
+		setInterval(function(){ 
+		get_last_mesage(20,"real_time");
+	
+		}, 2000);
+		},5000);
+			
+			
+			
+		//--- 
+function get_last_mesage(nb_msg,stat){
+
+	var id_chat=$('#all_chat .div_msg:last-child').attr("data-id");
+	if(typeof id_chat== 'undefined'){
+	id_chat=0;
+	}
+
+	$.post(url_ws_chat, { user_id:user_id,ecole_id:ecole_id,action: "get_last_message",nb_msg:nb_msg,last_id_chat:last_id_chat ,stat:stat},"json")
+	.done(function( data ) {
+	
+	var ids_new_msg = [];
+
+	//var data=JSON.parse(data);
+
+	var all_chat="";
+	
+	var all_msg=data.result.all_msg;
+	
+	for(i=0;i<all_msg.length;i++){
+	if(all_msg[i].message!=""){
+	
+	var count_=$(".div_msg[data-id='"+all_msg[i].id_chat+"']").length;
+
+	if(count_==0){
+	all_chat+=all_msg[i].message;
+	
+	var msg_notif=parseInt($(".msg_notif").text());
+	msg_notif=parseInt(all_msg[i].count_message);
+	$(".msg_notif").text(msg_notif);
+	set_l_s_by_name("last_id_chat",all_msg[i].id_chat);
+	last_id_chat=all_msg[i].id_chat;
+	
+	if(stat=="real_time"){
+	ids_new_msg.push(all_msg[i].id_chat);
+
+	}
+	}
+	}
+	
+	}
+	
+	$("#all_chat").append(all_chat);
+	// ids_new_msg
+	for(j=0;j<ids_new_msg.length;j++){
+	$('div[data-id="'+ids_new_msg[j]+'"]').addClass("div_msg_new");
+	}
+	
+	
+	if(all_msg.length>0){
+	
+	$("#all_chat").scrollTop($("#all_chat")[0].scrollHeight);
+	/*
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
+	audioElement.play();  
+	*/
+	
+	}
+	
+	/*
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
+	audioElement.play();
+	*/
+				
+
+	
+	
+
+
+
+	});
+ $("#loading").hide();
+}
+		
+		$(document).keypress(function(e) {
+    if(e.which == 13) {
+     
+		$('#envoyer').trigger('click');
+    }
+});
+			
+	
+		$(document).on('click',"#envoyer" , function () {
+		if($("#message").val()!=""){
+		var msg_capt="";
+		var is_c_msg=$(".img_question_cap").attr("data-active");
+		if(is_c_msg==1){
+		var ques_int=$("#num_q_serie").text();
+		var img_int=$(".img_question_cap img").attr("src");
+		ques_int=ques_int.replace("play_circle_filled","");
+		msg_capt="<h6>"+ques_int+"</h6>"+"<img class='img_capt_q' src='"+img_int+"' >";
+		}
+		
+		var message=msg_capt+"<br/>"+$("#message").val();
+						/* */ 
+						
+		
+		var date_message=new Date().toISOString().slice(0, 19).replace('T', ' ');
+		var jqxhr = $.post( url_ws_chat,{user_id:user_id,ecole_id:ecole_id,nom:nom,nom_famille:nom_famille,action:"envoyer_message",message:message,date_message:date_message}, function(data) {
+		},"json")
+		.done(function(data) {
+		
+		
+		var all_msg=data.result.all_msg;
+			
+		if(all_msg.length>0){
+		$("#message").val("");
+		
+	if(all_msg[0].message!=""){
+	var msg=all_msg[0].message;
+msg=msg.replace(":)","<i class='material-icons dp48'>insert_emoticon</i>");
+msg=msg.replace(":(","<i class='material-icons dp48'>mood_bad</i>");
+msg=msg.replace("<3","<i class='material-icons dp48'>favorite</i>");
+
+		
+	$("#all_chat").append(msg);	
+		$('div[data-id="'+all_msg[0].id_chat+'"]').addClass("div_msg_new");
+	set_l_s_by_name("last_id_chat",all_msg[0].id_chat);
+	last_id_chat=all_msg[0].id_chat;
+	
+	var objDiv = document.getElementById("all_chat");
+	objDiv.scrollTop = objDiv.scrollHeight;
+	
+	}
+
+
+		}
+		
+	var img_capt_def="images/img_capt.jpg";
+	$(".img_question_cap").find("img").attr("src",img_capt_def);
+$(".img_question_cap").find("span").text(" Joindre  l'image de question");
+$(".img_question_cap").attr("data-active","0");
+
+		// alert("envoyer");
+	// ->
+		})
+		.fail(function() {
+	
+		
+		var $toastContent = $("<span > Impossible d'envoyer le message !  !</span>");
+		Materialize.toast($toastContent, 3000,"alert-danger","top");
+		})
+		.always(function() {});
+		}
+		/* */
+		});
+		
+			
+		//----------------------
+		});
+		
+	
+    </script>
+	
   <script>
    $(document).ready(function(){
    
@@ -66,7 +330,7 @@ var audioElement = document.createElement('audio');
 	if(count>0){
 	for(i=0;i<count;i++){
 	var class_="";
-	if(data_res[i].rep_user==2){
+	if(data_res[i].rep_user==1){
 	res_juste++;
 	class_="green";
 	}else{
@@ -84,10 +348,12 @@ rep_q_rep_user+="<img class='img_q'  src='"+data_res[i].url_image+"' / >";
 rep_q_rep_user+="<div class='col s12 m12'><div id='question_arabic_mod'>"+data_res[i].question_arabic+"</div></div>";
 
 if(data_res[i].correction_url_mp3c_arabic!=""){
-rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep' data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i> Play </button>";
+rep_q_rep_user+="<div class='col s12 m12'><button class='play_rep' data-audio='"+data_res[i].correction_url_mp3c_arabic+"'><i class='material-icons icon-header-cadr'>play_circle_filled</i></button>";
 }
 rep_q_rep_user+="<button  data-id='ex_"+data_res[i].id_question+"' class='waves-effect waves-green btn-default explication'> <i class='material-icons'>&#xE88F;</i></button>";
+rep_q_rep_user+="<button  data-id='ex_"+data_res[i].id_question+"' class='waves-effect waves-green btn-default btn_open_chat'> <i class='material-icons'>chat</i></button>";
 rep_q_rep_user+="<a  href='#!' class='modal-action modal-close waves-effect waves-green btn-default close_modal'><i class='material-icons'>&#xE5CD;</i></a>";
+
 rep_q_rep_user+="</div>";
 
  
@@ -115,7 +381,7 @@ for(var j=1;j<=arr_r_d.length;j++){
 
 var color="red";
 
-if(arr_r_d[j-1]==2){color="green";}
+if(arr_r_d[j-1]==1){color="green";}
 rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+j+"</a></div>";
 }
 rep_q_rep_user+="</div>";
@@ -142,7 +408,7 @@ rep_q_rep_user+="<div class='row'>";
 for(var k=1;k<=arr_reponse.length;k++){
 
 var color="red";
-if(arr_reponse[k-1]==2){color="green";}
+if(arr_reponse[k-1]==1){color="green";}
 rep_q_rep_user+="<div class='col s3'><a class='btn-floating "+color+"' href='#'>"+k+"</a></div>";
 }
 rep_q_rep_user+="</div>";

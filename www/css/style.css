@@ -139,9 +139,9 @@ color: #808080;
     margin-bottom: 6px;
     font-weight: bold;
 }
-.close_modal{float: left;margin-left: 10px;background: orange;color: white;padding: 10px;height: 44px;width: 80px;font-size: 20px;}
+.close_modal{float: left;margin-left: 10px;background: orange;color: white;padding: 10px;height: 44px;width: 60px;font-size: 20px;}
 
-.play_rep{font-size: 15px;color: #fafafa;float: left;margin: 0 auto;line-height: 24px;background: orange;text-align: center;padding: 12px;width: 100px !important;height: 44px;border: none;}
+.play_rep{font-size: 14px;color: #fafafa;float: left;margin: 0 auto;line-height: 24px;background: orange;text-align: center;padding: 12px;width: 60px !important;height: 44px;border: none;}
 
 .play_rep i{text-align:center;font-size: 21px;line-height: 23px;float: left;margin-left: 6px;color: white;}
 .div_msg .card-panel{
@@ -366,7 +366,7 @@ max-height: 120px;
     background: orange;
     text-align: center;
     padding: 12px;
-    width: 80px !important;
+    width: 60px !important;
     height: 44px;
     border: none;
     margin-left: 14px;
@@ -383,4 +383,56 @@ max-height: 120px;
 button:focus {
     outline: none;
     background-color: #804c00;
+}
+#c_messages{
+background: #ee6e73;
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+    float: right;
+    text-align: center;
+    line-height: 26px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 10px;
+    border: 1px solid #ca5257;
+    padding: 1px;
+    font-size: 12px;
+}
+
+.titre_msg{
+width: 65%;
+float: left;
+text-align: left;
+padding-left: 10px;
+}
+.date_msg{
+width: 30%;
+float: right;
+text-align: right;
+padding-right: 10px;
+font-size:11px;
+}
+
+.date_msg i{
+font-size:11px;
+}
+.i_message{
+    padding: 6px;
+    font-size: 34px;
+    color: #ff9800;
+}
+.btn_open_chat{
+    font-size: 15px;
+    color: #fafafa;
+    float: left;
+    margin: 0 auto;
+    line-height: 24px;
+    background: orange;
+    text-align: center;
+    padding: 12px;
+    width: 60px !important;
+    height: 44px;
+    border: none;
+    margin-left: 14px;
 }
