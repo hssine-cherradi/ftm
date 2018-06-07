@@ -62,7 +62,7 @@
 		 
 		<div class="col s12 m12 img_pub" style="display:none;">
         
-		<img src="#" />
+		<a href="#" target='blank'><img src="#" /></a>
 		</div>
             </div>
     </div>
@@ -143,7 +143,8 @@
 	}
               
   $(".img_pub img").attr("src",url_fix+pub);
-  $(".img_pub").show();
+   $(".img_pub a").attr("src",url_fix+data_res[0].url);
+$(".img_pub").show();
   }).fail(function() {
   
 
