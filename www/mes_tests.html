@@ -62,6 +62,7 @@
 	}
 	var mn=parseInt(sommme_n/count);
 	var mc=parseInt(sommme_c/count);
+	if(isNaN(mn)){mn=0;} if(isNaN(mc)){mc=0;}
 	var m_note=mn+"/"+mc;
 	console.log(m_note);
 	$("#moyenne").html("La moyenne de notes : "+m_note);
