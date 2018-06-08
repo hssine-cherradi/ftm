@@ -36,9 +36,9 @@ nav_mobile+="<span class='dropdown-button waves-effect waves-light' data-activat
 nav_mobile+="</div>";
 nav_mobile+="</li>";
 
+nav_mobile+="<li><a href='dashboard.html'><i class='material-icons dp48'>insert_chart</i> Tableau de bord </a></li>";
 nav_mobile+="<li><a href='mon_compte.html'><i class='material-icons dp48'>account_box</i> Mon compte</a></li>";
 nav_mobile+="<li><a href='permis.html'><i class='material-icons dp48'>playlist_play</i> Nouveau test</a></li>";
-nav_mobile+="<li><a href='dashboard.html'><i class='material-icons dp48'>insert_chart</i> Progression</a></li>";
 nav_mobile+="<li><a href='mes_tests.html'><i class='material-icons dp48'>assignment</i> Mes tests</a></li>";
 nav_mobile+="<li><a href='chats.html'><i class='material-icons'>chat</i> Chat</a></li>";
 nav_mobile+="<li><a href='a_propos.html'><i class='material-icons dp48'>info_outline</i> A propos</a></li>";

@@ -13,12 +13,23 @@
 	  <style>
 	  .progression{
 	      background: white;
-    padding: 30px;
+    padding: 20px;
+    border: 2px solid gray;
+        
 	  }
 	 .progression .progress {
     background-color: #444343;
-    height: 15px;
-}
+    height: 25px;
+    border-radius:20px;
+     border: 2px solid gray;
+    color: black;
+    font-weight: bold;
+    }
+     .div_moyenne{
+	      background: white;
+    padding: 20px;
+         border: 2px solid gray;
+	  }
 	  </style>
     </head>
 
@@ -36,15 +47,17 @@
     <div class="container">
 	<div class="progress col s12 display_none" id="loading"><div class="indeterminate orange" ></div></div>
      
-		<h6> Bienvenue <span id="nom"></span> <span id="nom_famille"></span></h6>
-		
-		</br>
-		<h6 class='h6'> <i class='material-icons icon-header-cadr'>insert_chart</i> Progression de formation </h6>
-      <div class="row center menu-icons progression">
-      
-  
-    </div>
+        <h6> <center> Tableau de bord  </center></h6>
+          <h6> <center> <span id="nom"></span> <span id="nom_famille"></span>  </center> </h6>
+       
 	
+      <div class="row center menu-icons progression">
+      </div>
+	
+	<div class="row center menu-icons div_moyenne">
+     
+      </div>
+		
 	
 	<a href="permis.html" class="btn waves-effect waves-light" >
 			<i class="material-icons dp48">playlist_play</i> Nouveau tes
@@ -80,9 +93,9 @@
 	if(count>0){
 	for(i=0;i<count;i++){
 	var p=((data_res[i].c_c*100)/data_res[i].c).toFixed(2);;
-	progression+="<h6> <i class='material-icons icon-header-cadr'>"+data_res[i].icon+"</i> Catégorie "+data_res[i].categorie+" : "+p+"%"+"</h6>";
+	progression+="<h6> <i class='material-icons icon-header-cadr'>"+data_res[i].icon+"</i> Catégorie "+data_res[i].categorie+"</h6>";
 	progression+="<div class='progress'>";
-    progression+="<div class='determinate' style='width: "+p+"%'></div>";
+    progression+="<div class='determinate' style='width: "+p+"%'>"+p+"%</div>";
 	progression+=" </div>";
 	}
 	$(".progression").html(progression);
@@ -110,6 +123,62 @@ $(document).on('click', ".menu_permis", function () {
 	$("#"+id).show();
 });
 
+   });
+</script>
+
+  
+ 	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	 $("#loading").show();
+	
+	var user_id=get_l_s_by_name("id_user");
+		
+	var series="";
+	$.post(url_ws,{method:"mes_tests",user_id:user_id}, function() {
+	},"json")
+  .done(function(result) {
+ 
+
+    var data_res=result.data;
+	var count=data_res.length;
+	
+	var sommme_n=0;
+	var sommme_c=0;
+	
+	if(count>0){
+	for(i=0;i<count;i++){
+	var note=data_res[i]['note'].split("/");
+	sommme_n=(sommme_n+parseInt(note[0]));
+	sommme_c=(sommme_c+parseInt(note[1]));
+	}
+	}
+	var mn=parseInt(sommme_n/count);
+	var mc=parseInt(sommme_c/count);
+	if(isNaN(mn)){mn=0;} if(isNaN(mc)){mc=0;}
+	var m_note=mn+"/"+mc;
+	console.log(m_note);
+    var t_note="<h6>Pourcentage des tests realisés </h6>";
+    t_note+="<h6 id='moyenne'>"+"Note moyenne : "+m_note+"</h6>";
+	$(".div_moyenne").html(t_note);
+	if(count>0){
+	 $("#loading").hide();
+	}else{
+	
+	var $toastContent = $("<span >  liste vide !</span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+  $("#loading").hide();
+	}
+	
+  })
+  .fail(function() {
+  
+ 
+	var $toastContent = $("<span > Pas de connexion internet   </span>");
+  Materialize.toast($toastContent, 3000,"alert-danger","top");
+    $("#loading").hide(); 
+  });
+  
    });
 </script>
 
