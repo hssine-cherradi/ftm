@@ -210,7 +210,7 @@ $(".img_pub").show();
 	var sous_categorie=$_GET['sous_categorie'];
 	$("#sous_categorie").html(sous_categorie);
 	var question=0;
-	var id_question=0;
+	var id_question=0; 
 	var question_n=1;
 	var total_question=0;
 	var reponse_valide="";
@@ -231,6 +231,7 @@ $(".img_pub").show();
 	$("#question_arabic").html(data_res["question_arabic"]);
 	$("#question_n").text(question_n);
 	$("#total_question").text(total_question);
+    audioElement.play();
 	}
 	
 	$.post(url_ws,{method:"liste_questions",sous_categorie_id:sous_categorie_id}, function() {
