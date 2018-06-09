@@ -232,6 +232,8 @@ $(".img_pub").show();
 	$("#question_n").text(question_n);
 	$("#total_question").text(total_question);
     audioElement.play();
+    	$("#play_audio").val("1");
+    $("#play_audio").find("i").text("pause_circle_outline");
 	}
 	
 	$.post(url_ws,{method:"liste_questions",sous_categorie_id:sous_categorie_id}, function() {
@@ -290,7 +292,8 @@ $("#question_n").text(question_n);
 });
          
 /*--------------------------------*/
-	
+
+        
 	$("#play_audio").click(function(){
 	
 	if($(this).val()==0){
