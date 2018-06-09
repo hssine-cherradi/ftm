@@ -10,6 +10,17 @@
    <link type="text/css" rel="stylesheet" href="css/style.css" >
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     
+         <style>
+             #left,#right{
+    height: 90px;
+    line-height: 40px;
+    text-align: center;
+    max-width: 30px; 
+    border-radius: 0px;
+    background: #565252 !important;
+             }
+       </style>
     </head>
 
     <body >
@@ -39,12 +50,14 @@
           <button class="btn-floating halfway-fab waves-effect waves-light orange" value="0" id="play_audio" style="right: 80px;"><i class="material-icons">play_circle_outline</i></button>
         </div>
         <div class="card-content ">
-		<div class="col s12 m12 rep_q_user">
+        <div class="col s2 m2"><button class="btn-floating btn-large grey" id="left"><i class="material-icons">keyboard_arrow_left</i></button></div>
+		<div class="col s8 m8 rep_q_user">
 		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>1</button></div>
 		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>2</button></div>
 		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>3</button></div>
-		<div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>4</button></div>
+        <div class="col s6 m6"><button class="btn-floating btn-large grey" value='2'>4</button></div>
         </div>
+         <div class="col s2 m2"><button class="btn-floating btn-large grey" id="right"><i class="material-icons">keyboard_arrow_right</i></button></div>
 		
 		<div class="col s12 m12 btn-rep">
 		
@@ -244,9 +257,32 @@ $(".img_pub").show();
    
   });
   
+/*--------------------------------*/
 
-	
-	/*--------------------------------*/
+$("#right").click(function(){
+
+if(question_n<total_question){
+question=(question+1);
+question_n=(question_n+1);
+var data=all_data[question];
+console.log(data);
+next_q(data);
+$("#question_n").text(question_n);
+}
+});
+                  
+$("#left").click(function(){
+if(question_n>1){
+question=(question-1);
+question_n=(question_n-1);
+
+var data=all_data[question];
+next_q(data);
+$("#question_n").text(question_n);
+}
+});
+         
+/*--------------------------------*/
 	
 	$("#play_audio").click(function(){
 	
