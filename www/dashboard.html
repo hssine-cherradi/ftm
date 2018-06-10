@@ -13,7 +13,7 @@
 	  <style>
 	  .progression{
 	      background: white;
-    padding: 15px;
+    padding: 10px;
     border: 2px solid gray;
         
 	  }
@@ -27,7 +27,7 @@
     }
      .div_moyenne{
 	      background: white;
-    padding:15px;
+    padding:10px;
          border: 2px solid gray;
 	  }
 	  </style>
@@ -144,27 +144,48 @@ $(document).on('click', ".menu_permis", function () {
   .done(function(result) {
  
 
-    var data_res=result.data;
-	var count=data_res.length;
+    var data_res_cat=result.data.categories;
+    var data_res_s_cat=result.data.s_categories;
+	var count=data_res_cat.length;
 	
+      var t_note="<h6>Progression de formation</h6>";
+	if(count>0){
+    var cat=data_res_cat;
+    var s_cat=data_res_s_cat;
+    
+   
+            for(i=0;i<cat.length;i++){
+            
 	var sommme_n=0;
 	var sommme_c=0;
-	
-	if(count>0){
-	for(i=0;i<count;i++){
-	var note=data_res[i]['note'].split("/");
-	sommme_n=(sommme_n+parseInt(note[0]));
-	sommme_c=(sommme_c+parseInt(note[1]));
-	}
-	}
-	var mn=parseInt(sommme_n/count);
-	var mc=parseInt(sommme_c/count);
+	var count_s_cat=0;
+            for(j=0;j<s_cat.length;j++){
+           
+            if(s_cat[j].categorie==cat[i].categorie)  {    
+            count_s_cat++;
+               var note=data_res_s_cat[j]['note'].split("/");
+            sommme_n=(sommme_n+parseInt(note[0]));
+            sommme_c=(sommme_c+parseInt(note[1]));
+             }
+            }
+            
+     var mn=parseInt(sommme_n/count_s_cat);
+	var mc=parseInt(sommme_c/count_s_cat);
+        console.log(mn+" - "+mc);
 	if(isNaN(mn)){mn=0;} if(isNaN(mc)){mc=0;}
 	var m_note=mn+"/"+mc;
-	console.log(m_note);
-    var t_note="<h6>Progression de formation</h6>";
-    t_note+="<h6 id='moyenne'>"+"Note moyenne : "+m_note+"</h6>";
+	
+   
+    t_note+="<h6 id='moyenne'><i class='material-icons '>"+cat[i].icon+"</i><b> "+cat[i].categorie+"</b>  - Note moyenne : "+m_note+"</h6>";
+                
+        }
+    }  
+        
+
 	$(".div_moyenne").html(t_note);
+        
+        
+        
 	if(count>0){
 	 $("#loading").hide();
 	}else{
