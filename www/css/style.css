@@ -123,10 +123,10 @@ color: #808080;
 .header_chat{width:100%;float:left;border-bottom: 1px solid #ff9800;padding-bottom: 8px;background: white;}
 .modal-content .img_q{max-height: 150px;height: auto;width: 100%;}
 .resltat_q_a{margin-bottom: 10px;}
-.resltat_q_a.red{color: white;background: #F44336 !important;}
+.resltat_q_a.red{color: white;background: #a7a7a7 !important;}
 .resltat_q_a.green{
 	color: white;
-	background: #4CAF50 !important;
+	background: #ff9800 !important;
 }
 #question_arabic_mod{
     width: 100%;
@@ -138,6 +138,7 @@ color: #808080;
     margin-top: 0px;
     margin-bottom: 6px;
     font-weight: bold;
+    direction: rtl;
 }
 .close_modal{float: left;margin-left: 10px;background: orange;color: white;padding: 10px;height: 44px;width: 60px;font-size: 20px;}
 
@@ -417,7 +418,7 @@ font-size:11px;
 .date_msg i{
 font-size:11px;
 }
-.i_message{ 
+.i_message{
     padding: 6px;
     font-size: 34px;
     color: #ff9800;
@@ -435,4 +436,18 @@ font-size:11px;
     height: 44px;
     border: none;
     margin-left: 14px;
+}
+.msg_t_q_ar{
+    text-align: right;
+    direction: rtl;
+    float: right;
+    background: white;
+    padding: 8px;
+    width: 100%;
+    margin: 6px; 
+    border: 1px solid orange;
+}
+#correction{
+width: 100%;
+    margin-top: 8px;
 }

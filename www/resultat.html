@@ -94,9 +94,8 @@
 				//----------------------
 			
 	//-----------------
-        
-        
-        
+      var  question_arabic_text= "";   
+           
 	var img_capt_def="images/img_capt.jpg";
 	$(".img_question_cap").click(function(){
 	var active=$(this).attr("data-active");
@@ -105,6 +104,8 @@
 	$(this).find("img").attr("src",img_q_act);
 	$(this).find("span").text(" Supprimer  l'image de question");
 	$(this).attr("data-active","1");
+     question_arabic_text= $(".modal.open #question_arabic_mod").html();
+ 
 	}
 	
 	if(active==1){
@@ -202,24 +203,10 @@ function get_last_mesage(nb_msg,stat){
 	if(all_msg.length>0){
 	
 	$("#all_chat").scrollTop($("#all_chat")[0].scrollHeight);
-	/*
-	var audioElement = document.createElement('audio');
-	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
-	audioElement.play();  
-	*/
-	
+        
 	}
 	
-	/*
-	var audioElement = document.createElement('audio');
-	audioElement.setAttribute('src', "audio_notification/new_msg.mp3");
-	audioElement.play();
-	*/
-				
-
 	
-	
-
 
 
 	});
@@ -245,7 +232,7 @@ function get_last_mesage(nb_msg,stat){
 		msg_capt="<h6>"+ques_int+"</h6>"+"<img class='img_capt_q' src='"+img_int+"' >";
 		}
 		
-		var message=msg_capt+"<br/>"+$("#message").val();
+		var message=msg_capt+"<br/>"+"<div class='msg_t_q_ar'>"+question_arabic_text+"</div><br/>"+$("#message").val();
 						/* */ 
 						
 		

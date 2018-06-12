@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "9593f02d-904d-41b8-8e66-10e8f73e34c6",
-      "lastModifiedDate": 1528565171446,
+      "lastModifiedDate": 1528678214723,
       "creationDate": 1512942465512
     },
     "testDirectory": "test",
@@ -27,7 +27,7 @@
         },
         "isActive_": true,
         "certificateId_": "JwPIHo2zoEGIaXrUTYQ_iw2",
-        "appName_": "FTM",
+        "appName_": "Free Test Mobile",
         "appID_": "com.app.ftm",
         "appAccess_": {
           "mode": "whitelist",
@@ -94,13 +94,13 @@
             "orientation": "portrait"
           }
         ],
-        "appVersion_": "0.0.3",
-        "appVersionCode_": "3",
+        "appVersion_": "0.0.4",
+        "appVersionCode_": "4",
         "signed_": true,
         "crosswalkVersion_": "23",
         "cordovaCLIVersion_": "6.2.0",
-        "appDescription_": "Free Test Mode est une application de test de code de la route qui permet aux utilisateurs de s’entraîner pour les examens de permis de conduite.",
-        "appAuthor_": "JHB Plus by HSsine cherradi"
+        "appDescription_": "Free Test Mobile est une application de test de code de la route qui permet aux utilisateurs de s’entraîner pour les examens de permis de conduite.",
+        "appAuthor_": "JHB Plus SARL  by Hssine cherradi "
       },
       "iOS": {
         "platform_": "ios",
