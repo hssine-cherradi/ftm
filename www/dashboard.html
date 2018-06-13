@@ -94,7 +94,7 @@
 	if(count>0){
 	for(i=0;i<count;i++){
     
-	var p=((data_res[i].c_c*100)/data_res[i].c).toFixed(2);
+	var p=parseInt((data_res[i].c_c*100)/data_res[i].c).toFixed(2);
     if(p>0){
 	progression+="<h6> <i class='material-icons icon-header-cadr'>"+data_res[i].icon+"</i> Catégorie "+data_res[i].categorie+"</h6>";
 	progression+="<div class='progress'>";
